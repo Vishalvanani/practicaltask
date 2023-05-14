@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Scan QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid style="position: relative;height: 100%;">
+    <ion-row style="text-align: center;">
+      <!-- Start Scan -->
+      <!-- Show only this button when scanner not running -->
+      <ion-col size="12" *ngIf="!isScannerRunning">
+        <ion-button type="button" (click)="startScanner()">Scan</ion-button>
+      </ion-col>
+
+      <!-- Show this content Only if qr code content available -->
+      <ion-col size="12" *ngIf="qrCodeB64" style="margin-top: 25px;">
+        <img [src]="qrCodeB64">
+        <p style="font-size: 16px;">{{qrCodeStr}}</p>
+      </ion-col>
+    </ion-row>
+
+    <!-- Torch Control -->
+    <ion-row class="flashlight-row" *ngIf="isScannerRunning">
+      <ion-col size="12" class="vertical_centrC">
+        <ion-icon [name]="isTorchEnabled ? 'flashlight' : 'flashlight-outline'" (click)="toggleTorch()" class="torch"></ion-icon>
+        <ion-button type="button" color="danger" (click)="stopScan()" class="stop-scan">Stop Scan</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

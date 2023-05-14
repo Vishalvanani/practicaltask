@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Generate QR </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Show generated QR code -->
+  <div id="container">
+    <br />
+    <img [src]="qrBase64" />
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button
+          (click)="generate()"
+          expand="block"
+          color="secondary"
+          shape="round"
+        >
+          Generate QR
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button
+          (click)="share()"
+          expand="block"
+          color="warning"
+          shape="round"
+        >
+          Share QR#
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

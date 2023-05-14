@@ -1,0 +1,24 @@
+<!-- Header -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title text-center>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Login Page Content -->
+<ion-content class="ion-padding" style="--background: darkslategray">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-item style="margin-bottom: 15px;">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+  
+      <ion-item style="margin-bottom: 15px;">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+  
+      <!-- Login Button -->
+      <ion-button type="submit" expand="block" [disabled]="loginForm.invalid">Login</ion-button>
+    </form>
+  </ion-content>

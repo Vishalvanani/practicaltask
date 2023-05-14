@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <!-- Open Scan QR Component -->
+      <ion-col size="12">
+        <h5>QR Scanner</h5>
+        <ion-button type="button" (click)="openScanQR()">QR Scanner</ion-button>
+      </ion-col>
+      <!-- Open Generate & Share QR Component -->
+      <ion-col size="12">
+        <h5>QR Generator</h5>
+        <ion-button type="button" (click)="openGenerateQRPage()">QR Generator</ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
